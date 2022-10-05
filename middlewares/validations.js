@@ -38,18 +38,12 @@ const validateMovieId = celebrate({
   }),
 });
 
-
-
 // const validateAuthentication = celebrate({
 //   body: Joi.object().keys({
 //     email: Joi.string().required().email(),
 //     password: Joi.string().required(),
 //   }),
 // });
-
-
-
-//
 
 // const validateUserId = celebrate({
 //   params: Joi.object().keys({
@@ -63,16 +57,12 @@ const validateMovieId = celebrate({
 //   }),
 // });
 
-
-
 module.exports = {
   validateUserUpdate,
   validateMovieBody,
   validateMovieId,
   validateUserBody,
-
   // validateCardBody,
-
   // validateAvatarBody,
   // validateAuthentication,
   // validateUserId,
