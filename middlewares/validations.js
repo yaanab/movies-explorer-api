@@ -38,33 +38,17 @@ const validateMovieId = celebrate({
   }),
 });
 
-// const validateAuthentication = celebrate({
-//   body: Joi.object().keys({
-//     email: Joi.string().required().email(),
-//     password: Joi.string().required(),
-//   }),
-// });
-
-// const validateUserId = celebrate({
-//   params: Joi.object().keys({
-//     userId: Joi.string().length(24).hex().required(),
-//   }),
-// });
-
-// const validateAvatarBody = celebrate({
-//   body: Joi.object().keys({
-//     avatar: Joi.string().pattern(regex),
-//   }),
-// });
+const validateAuthentication = celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+});
 
 module.exports = {
   validateUserUpdate,
   validateMovieBody,
   validateMovieId,
   validateUserBody,
-  // validateCardBody,
-  // validateAvatarBody,
-  // validateAuthentication,
-  // validateUserId,
-  // validateCardId,
+  validateAuthentication,
 };
