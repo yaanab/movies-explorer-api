@@ -8,10 +8,10 @@ const { validateUserBody, validateAuthentication } = require('../middlewares/val
 
 router.post('/signup', validateUserBody, createUser);
 router.post('/signin', validateAuthentication, login);
-router.get('/signout', logout);
 router.use(auth);
 router.use('/users', userRouter);
 router.use('/movies', movieRouter);
+router.get('/signout', logout);
 
 router.use('/', (req, res, next) => {
   next(new NotFoundError('Запрос не найден'));
