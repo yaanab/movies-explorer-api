@@ -1,8 +1,7 @@
 const allowedCors = [
-  // 'https://yaana.nomoredomains.sbs',
-  // 'http://yaana.nomoredomains.sbs',
+  'https://yaana.movies.nomoredomains.icu',
+  'http://yaana.movies.nomoredomains.icu',
   'http://localhost:3000',
-  // 'http://localhost:3005',
 ];
 
 const cors = (req, res, next) => {
