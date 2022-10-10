@@ -46,12 +46,15 @@ module.exports.getCurrentUser = (req, res, next) => {
 module.exports.updateUser = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
-    { name: req.body.name },
+    // { name: req.body.name },
+    req.body,
     { new: true, runValidators: true },
   )
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err.code === 11000) {
+        next(new ConflictError('Данный email уже зарегестрирован'));
+      } else if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
       } else {
         next(err);
@@ -73,8 +76,8 @@ module.exports.login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          sameSite: 'none',
-          secure: true,
+          // sameSite: 'none',
+          // secure: true,
         });
       res.send({ token });
     })
