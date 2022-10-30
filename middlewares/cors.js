@@ -2,6 +2,7 @@ const allowedCors = [
   'https://yaana.movies.nomoredomains.icu',
   'http://yaana.movies.nomoredomains.icu',
   'http://localhost:3000',
+  'http://localhost:3001',
 ];
 
 const cors = (req, res, next) => {
